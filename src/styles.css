@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+:root{
+  --grey:#B0B5BF;
+  --bg-grey:#F3F4F6;
+  --bg-secondary:#FFFFFF
+}
+
+body{
+  background-color: var(--bg-grey);
+}
+* {
+  box-sizing:border-box;
+  max-width: 100vw !;
+}
+.active svg{
+  color:#FB5883;
+
+}
+.secondary-bg{
+  background-color: var(--bg-secondary);
+}
+.primary-bg{
+  background-color: var(--bg-grey);
+}
+.editsvg {
+  color:#B0B5BF;
+
+}
+.save-svg{
+  color:#FFFFFF
+}

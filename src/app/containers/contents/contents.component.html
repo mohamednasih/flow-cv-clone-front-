@@ -1,0 +1,5 @@
+<div class="content">
+  <div *ngFor="let item of cv | keyvalue,let i=index" class="mt-4">
+    <app-objectives [title]="item.key" [index]="i" [objectives]="item.value"/>
+  </div>
+</div>

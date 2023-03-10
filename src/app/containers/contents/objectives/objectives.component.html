@@ -1,0 +1,91 @@
+<div class="mt-3 secondary-bg rounded-4">
+  <div class="">
+    <div class="secondary-bg rounded-5 py-lg-3" id="headingOne">
+      <h5 class="mb-0">
+        <button
+          class="d-none"
+          #collpaseBtn
+          data-bs-toggle="collapse"
+          attr.href="{{'#multiCollapseExample1'+index}}"
+          role="button"
+          aria-expanded="false"
+          attr.aria-controls="{{'multiCollapseExample1'+index}}"
+        ></button>
+        <div class="p-3" (click)="collpaseBtn.click(); clicked()">
+          <div class="row">
+            <div class="col-6">
+              <div
+                [ngClass]="collapse == false ? 'd-none' : 'd-block'"
+                class="display fw-bolder text-start"
+              >
+              <div class="ms-2 d-flex align-items-center">
+                <app-svg [name]="(title+'').toLowerCase()" [width]="'1.5em'"></app-svg>
+                <span class="ms-4 fw-bolder title">{{title}}</span>
+              </div>
+
+              </div>
+              <div
+                [ngClass]="collapse == true ? 'd-none' : 'd-block'"
+                class="edit"
+              >
+                <input
+                disabled
+                  (click)="$event.stopPropagation()"
+                  type="text"
+                  class="form-control primary-bg rounded-4 py-3"
+                  id="Adress"
+                  placeholder="{{title}}"
+                />
+              </div>
+            </div>
+            <div class="m-auto col-1 me-3">
+              <div
+                class="sc-mut9rj-0 hYXTRR"
+                [ngClass]="!collapse ? 'up' : 'down'"
+              >
+               <app-svg [name]="'updown'"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </h5>
+    </div>
+
+    <div class="collapse multi-collapse" id="{{'multiCollapseExample1'+index}}">
+      <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+        <div >
+          <div
+            class="example-box px-3 py-4"
+            *ngFor="let objectif of objectives;let i=index"
+            cdkDrag
+          >
+            <span class=""
+              >
+            <app-svg [name]="'drag'"/>
+
+            </span>
+            <span class="fw-bolder ms-2">{{ objectif.name }}</span>
+            <button
+            (click)="$event.stopPropagation();display(i)"
+            class="m-auto btn me-2 p-0">
+              <span [hidden]="objectif.displayed"
+                >
+              <app-svg [name]="'eye-on'"/>
+              </span>
+              <span [hidden]="!objectif.displayed"
+                >
+              <app-svg [name]="'eye-off'"/>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="add-new p-4 rounded-4">
+        <button class="btn fw-bolder px-4 py-3 rounded-pill m-auto">
+                <app-svg [name]="'add'" [width]="'25px'"/>
+                <span class="ms-3">{{title}}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

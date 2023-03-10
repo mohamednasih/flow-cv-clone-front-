@@ -1,0 +1,39 @@
+<div class="secondary-bg rounded-5">
+  <div class="d-flex justify-content-between p-4">
+    <div (click)="$event.stopPropagation()" class="mx-lg-3 me-lg-5">
+      <div [ngClass]="mode == 'display' ? '' : 'd-none'">
+        <span class="fw-bolder fs-4">{{ version }}</span>
+        <button (click)="edit()" class="btn pt-0 pb-3">
+            <app-svg [width]="'0.9rem'" [class]="'edit-svg'" name="edit"/>
+        </button>
+      </div>
+      <div>
+        <div
+          [ngClass]="mode == 'edit' ? '' : 'd-none'"
+          class="edit-version d-flex align-items-center justify-content-between"
+        >
+          <div class="input-container">
+            <input
+              id="editVersion"
+              [value]="version"
+              #v
+              type="text"
+              class="rounded"
+            />
+          </div>
+          <div class="btn-container">
+            <button
+              (click)="saveVersionName(v.value)"
+              class="btn ms-3 p-0 rounded text-white"
+            >
+             <app-svg [name]="'save'" [width]="'1.1rem'" [class]="'save-svg'" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="download-button ">
+      <button class="btn rounded-pill px-lg-4">Download</button>
+    </div>
+  </div>
+</div>
